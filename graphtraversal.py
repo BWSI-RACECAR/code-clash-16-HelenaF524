@@ -52,18 +52,34 @@ class Solution:
         # return type: int (shortest path as an int)
 
         # TODO: Write code below to return an int with the solution to the prompt
+        
         course = 0
         path = "Start"
-        for key in graph.keys():
-            if key == "Finish":
-                break
-            elif key == path:
-                min = 1000
-                for k, val in key:
-                    if val<min:
-                        min = val
-                        path = k
-                course += min
+
+        #while(!finish): graph[path]: course + min
+        # for key in graph.keys():
+        #     if key == "Finish":
+        #         break
+        #     elif key == path:
+        #         min = 1000
+        #         now = graph[key]
+        #         for k in now.keys():
+        #             val = now[k]
+        #             if val<min:
+        #                 min = val
+        #                 path = k
+        #         print(min, path)
+        #         course += min
+
+        while(path != "Finish"):
+            options = graph[path]
+            min = 1000
+            for key, val in options.items():
+                if val<min:
+                    min = val
+                    path = key
+            course+= min
+
         return course
 
         
